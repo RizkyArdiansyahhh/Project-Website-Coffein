@@ -6,9 +6,14 @@
   border: none;
   text-decoration: none;
 }
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Poppins", sans-serif;
   background-color: #14191f;
+  overflow-x: hidden;
 }
 /* NAVBAR START */
 header.navbar-container {
@@ -20,6 +25,9 @@ header.navbar-container {
   position: fixed;
   z-index: 9999;
   padding: 1.4rem 5%;
+}
+header .menu {
+  display: none;
 }
 header .navbar-logo {
   font-size: 2rem;
@@ -387,8 +395,37 @@ footer .credit span {
   html {
     font-size: 60%;
   }
+  header .navbar-nav {
+    position: absolute;
+    top: -100px;
+    right: -100%;
+    width: 25rem;
+    background-color: #ffffff;
+    height: fit-content;
+    border-radius: 20px;
+    transition: 0.4s;
+    margin-right: 5%;
+    transform: scale(0);
+  }
+  header .active {
+    top: 100%;
+    right: 0;
+    transform: scale(1);
+  }
   header .navbar-nav ul {
+    width: 100%;
     margin-right: 10rem;
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 5rem;
+  }
+  header .navbar-nav ul li a {
+    color: #272626;
+  }
+  header .menu {
+    display: inline-block;
   }
   main #content .content-about {
     padding-left: 0;
@@ -415,7 +452,7 @@ footer .credit span {
     font-size: 50%;
   }
   header.navbar-container {
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 0.5rem;
   }
   main #content .content-hero {
